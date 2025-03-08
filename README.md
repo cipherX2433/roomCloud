@@ -115,9 +115,6 @@ roomCloud is a **hotel booking system API** that allows users to book hotels, ma
 git clone https://github.com/your-username/roomCloud.git
 cd roomCloud
 
-# Create a `.env` file for environment variables
-cp .env.example .env
-
 # Update database & Stripe credentials in `.env`
 
 # Build & run the project

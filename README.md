@@ -130,18 +130,3 @@ cp .env.example .env
 
 ---  
 
-## 📌 Contributing  
-
-Want to contribute? Follow these steps:  
-
-1. **Fork** the repository  
-2. **Create** a new branch (`feature-xyz`)  
-3. **Commit** your changes (`git commit -m "Added xyz feature"`)  
-4. **Push** and open a **Pull Request**  
-
----  
-
-## 📄 License  
-
-This project is licensed under the **MIT License**.  
-

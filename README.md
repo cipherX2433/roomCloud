@@ -87,7 +87,7 @@ roomCloud is a **hotel booking system API** that allows users to book hotels, ma
 1. **User Signs Up/Login** → Receives an **Access Token** & **Refresh Token**  
 2. **Access Token Expiry** → Use **Refresh Token** to get a new Access Token  
 3. **Tokens stored securely** in **cookies** for session management  
-4. **Admin routes protected** with role-based access control (`ROLE_ADMIN`)  
+4. **Admin routes protected** with role-based access control (`HOTEL_MANAGER`)  
 
 ---  
 

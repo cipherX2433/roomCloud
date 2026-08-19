@@ -5,6 +5,8 @@ import com.cipherx.projects.roomCloud.dto.LoginResponseDto;
 import com.cipherx.projects.roomCloud.dto.SignUpRequestDto;
 import com.cipherx.projects.roomCloud.dto.UserDto;
 import com.cipherx.projects.roomCloud.security.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,16 +24,19 @@ import java.util.Arrays;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@Tag(name = "Authentication", description = "User registration, login, and JWT access token refresh endpoints")
 public class AuthController {
 
     private final AuthService authService;
 
     @PostMapping("/signup")
+    @Operation(summary = "Register a new user", description = "Creates a new user account (CUSTOMER or HOTEL_MANAGER) in the system.")
     public ResponseEntity<UserDto> signup(@RequestBody SignUpRequestDto signUpRequestDto) {
         return new ResponseEntity<>(authService.signUp(signUpRequestDto), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
+    @Operation(summary = "Log in a user", description = "Authenticates user credentials, sets refresh token cookie, and returns JWT access token.")
     public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         String[] tokens = authService.login(loginDto);
 
@@ -43,6 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
+    @Operation(summary = "Refresh access token", description = "Generates a new JWT access token using the HTTP-only refresh token cookie.")
     public ResponseEntity<LoginResponseDto> refresh(HttpServletRequest request) {
         String refreshToken = Arrays.stream(request.getCookies()).
                 filter(cookie -> "refreshToken".equals(cookie.getName()))
@@ -55,3 +61,4 @@ public class AuthController {
     }
 
 }
+

@@ -1,0 +1,12 @@
+# Spring Boot secrets
+src/main/resources/application.properties
+
+# Maven
+target/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store

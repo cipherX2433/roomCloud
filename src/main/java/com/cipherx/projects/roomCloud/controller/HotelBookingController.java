@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/bookings")
 @AllArgsConstructor
+@Tag(name = "Bookings", description = "Hotel booking initiation, guest assignment, payment processing, and status tracking")
 public class HotelBookingController {
 
     private final BookingService bookingService;
